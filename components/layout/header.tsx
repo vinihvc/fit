@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { CONFIG } from '@/constants/config'
-import { Github, Twitter } from 'lucide-react'
+import { Cherry, Github, Twitter } from 'lucide-react'
 
 import { ThemeToggle } from '@/components/theme-toggle'
 import { buttonVariants } from '../ui/button'
@@ -11,6 +11,7 @@ export const Header = () => {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div>
           <Link href="/" className="flex items-center space-x-2">
+            <Cherry className="text-red-500" strokeWidth={1} />
             <span className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
               Fit
             </span>

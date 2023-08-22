@@ -1,6 +1,6 @@
 export const SEO = {
-  title: 'Next Boilerplate',
-  description: 'Start your project with Next and all modern technologies',
+  title: 'Fit',
+  description: 'A simple app to track your food intake',
   keywords: [
     'Next',
     'Typescript',
