@@ -50,7 +50,7 @@ export const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed bottom-0 left-[50%] z-50 sm:top-[50%]',
+        'fixed left-[50%] z-50 max-sm:bottom-0 sm:top-[50%]',
         'grid w-full max-w-lg',
         'gap-4 p-6',
         'shadow-lg',
@@ -81,10 +81,7 @@ export const DialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      'flex flex-col space-y-2 text-center sm:text-left',
-      className,
-    )}
+    className={cn('flex flex-col space-y-2 max-sm:text-center', className)}
     {...props}
   />
 )

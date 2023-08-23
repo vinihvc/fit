@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { FOOD } from '@/content/food'
 
 import { Card } from '@/components/card'
-import { NutritionalTable } from '@/components/nutritional-table/nutritional-table'
+import { Image } from '@/components/image'
+import { NutritionalTable } from '@/components/nutritional-table'
 import {
   Dialog,
   DialogContent,
@@ -56,8 +56,6 @@ const ClientHomePage = ({ food }: ClientHomePageProps) => {
                   <Image
                     src={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
                     alt={food.name}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     fill
                   />
                 </div>

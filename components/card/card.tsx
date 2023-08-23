@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
 import { cn } from '@/utils/cn'
 
+import { Image } from '../image'
 import { CardTable, CardTableProps } from './card.table'
 
 type CardProps = {
@@ -34,10 +34,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
               src={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
               className="object-cover"
               alt={food.name}
-              placeholder="blur"
-              blurDataURL={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              fill
             />
           </div>
         </div>
