@@ -42,9 +42,9 @@ const ClientHomePage = ({ food }: ClientHomePageProps) => {
 
       <div className="grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 lg:grid-cols-4">
         {filteredFilter.map((food) => (
-          <Dialog>
+          <Dialog key={food.name}>
             <DialogTrigger asChild>
-              <Card key={food.name} food={food} className="cursor-pointer" />
+              <Card food={food} className="cursor-pointer" />
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
@@ -54,17 +54,16 @@ const ClientHomePage = ({ food }: ClientHomePageProps) => {
               <div className="overflow-hidden rounded-lg">
                 <div className="relative h-32 w-full">
                   <Image
-                    src={`https://source.unsplash.com/random/?${food.name},food`}
-                    objectFit="cover"
+                    src={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
                     alt={food.name}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     fill
                   />
                 </div>
               </div>
 
-              <DialogDescription>
-                <NutritionalTable nutrients={food.nutrients} />
-              </DialogDescription>
+              <NutritionalTable nutrients={food.nutrients} />
             </DialogContent>
           </Dialog>
         ))}

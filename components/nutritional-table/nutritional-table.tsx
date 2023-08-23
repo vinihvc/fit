@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn'
 
-import { Table, TableHead, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableHead, TableRow } from '@/components/ui/table'
 
 export type NutritionalTableProps = {
   nutrients: {
@@ -16,22 +16,24 @@ export const NutritionalTable = (props: NutritionalTableProps) => {
 
   return (
     <Table className={cn(className)} {...rest}>
-      <TableRow>
-        <TableHead className="font-semibold">Calories</TableHead>
-        <TableHead>{nutrients.calories}</TableHead>
-      </TableRow>
-      <TableRow>
-        <TableHead className="font-semibold">Fat</TableHead>
-        <TableHead>{nutrients.fat}</TableHead>
-      </TableRow>
-      <TableRow>
-        <TableHead className="font-semibold">Carbs</TableHead>
-        <TableHead>{nutrients.carbs}</TableHead>
-      </TableRow>
-      <TableRow>
-        <TableHead className="font-semibold">Protein</TableHead>
-        <TableHead>{nutrients.protein}</TableHead>
-      </TableRow>
+      <TableBody>
+        <TableRow>
+          <TableHead className="font-semibold">Calories</TableHead>
+          <TableHead>{nutrients.calories}</TableHead>
+        </TableRow>
+        <TableRow>
+          <TableHead className="font-semibold">Fat</TableHead>
+          <TableHead>{nutrients.fat}</TableHead>
+        </TableRow>
+        <TableRow>
+          <TableHead className="font-semibold">Carbs</TableHead>
+          <TableHead>{nutrients.carbs}</TableHead>
+        </TableRow>
+        <TableRow>
+          <TableHead className="font-semibold">Protein</TableHead>
+          <TableHead>{nutrients.protein}</TableHead>
+        </TableRow>
+      </TableBody>
     </Table>
   )
 }

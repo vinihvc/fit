@@ -7,7 +7,7 @@ export const LoadingHome = () => {
         <Skeleton className="h-[40px] w-full" />
 
         <div className="grid grid-cols-4 gap-4 py-4">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <Skeleton key={i} className="h-[227px] w-full" />
           ))}
         </div>
