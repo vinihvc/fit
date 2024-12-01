@@ -1,37 +1,33 @@
+import { TacoType } from '@/content/TACO'
 import { cn } from '@/utils/cn'
 
 import { Table, TableBody, TableHead, TableRow } from '@/components/ui/table'
 
 export type NutritionalTableProps = {
-  nutrients: {
-    carbs: number
-    fat: number
-    calories: number
-    protein: number
-  }
+  data: TacoType
 } & React.HTMLAttributes<HTMLDivElement>
 
 export const NutritionalTable = (props: NutritionalTableProps) => {
-  const { nutrients, className, ...rest } = props
+  const { data, className, ...rest } = props
 
   return (
     <Table className={cn(className)} {...rest}>
       <TableBody>
         <TableRow>
           <TableHead className="font-semibold">Calories</TableHead>
-          <TableHead>{nutrients.calories}</TableHead>
+          <TableHead>{data.energy_kcal}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Fat</TableHead>
-          <TableHead>{nutrients.fat}</TableHead>
+          <TableHead>{data.saturated_g}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Carbs</TableHead>
-          <TableHead>{nutrients.carbs}</TableHead>
+          <TableHead>{data.carbohydrate_g}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Protein</TableHead>
-          <TableHead>{nutrients.protein}</TableHead>
+          <TableHead>{data.protein_g}</TableHead>
         </TableRow>
       </TableBody>
     </Table>

@@ -1,14 +1,12 @@
 import React from 'react'
+import { TacoType } from '@/content/TACO'
 import { cn } from '@/utils/cn'
 
 import { Image } from '../image'
 import { CardTable, CardTableProps } from './card.table'
 
 type CardProps = {
-  food: {
-    name: string
-    nutrients: CardTableProps['nutrients']
-  }
+  food: TacoType
 } & React.HTMLAttributes<HTMLDivElement>
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -31,21 +29,23 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         <div className="overflow-hidden rounded-t">
           <div className="relative h-32 w-full">
             <Image
-              src={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
+              src="https://picsum.photos/200"
               className="object-cover"
-              alt={food.name}
+              alt={food.description}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>
 
         <div className="p-2">
-          <h2 className="text-center text-lg font-semibold">{food.name}</h2>
+          <h2 className="text-center text-lg font-semibold">
+            {food.description}
+          </h2>
 
           <hr className="my-1 border-t dark:border-neutral-800 md:my-3" />
 
           <div className="flex justify-center">
-            <CardTable nutrients={food.nutrients} />
+            {/* <CardTable nutrients={food.nutrients} /> */}
           </div>
         </div>
       </article>

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FOOD } from '@/content/food'
+import { TacoType } from '@/content/TACO'
 
 import { Card } from '@/components/card'
 import { Image } from '@/components/image'
@@ -17,7 +17,7 @@ import {
 import { Input } from '@/components/ui/input'
 
 type ClientHomePageProps = {
-  food: typeof FOOD
+  food: TacoType[]
 }
 
 const ClientHomePage = ({ food }: ClientHomePageProps) => {
@@ -26,7 +26,7 @@ const ClientHomePage = ({ food }: ClientHomePageProps) => {
   const filteredFilter = React.useMemo(
     () =>
       food.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase()),
+        item.description.toLowerCase().includes(search.toLowerCase()),
       ),
     [search, food],
   )
@@ -42,26 +42,26 @@ const ClientHomePage = ({ food }: ClientHomePageProps) => {
 
       <div className="grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 lg:grid-cols-4">
         {filteredFilter.map((food) => (
-          <Dialog key={food.name}>
+          <Dialog key={food.description}>
             <DialogTrigger asChild>
               <Card food={food} className="cursor-pointer" />
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>{food.name}</DialogTitle>
+                <DialogTitle>{food.description}</DialogTitle>
               </DialogHeader>
 
               <div className="overflow-hidden rounded-lg">
                 <div className="relative h-32 w-full">
                   <Image
-                    src={`https://source.unsplash.com/random/?${food.name},food&q=60&w=400`}
-                    alt={food.name}
+                    src="https://picsum.photos/200"
+                    alt={food.description}
                     fill
                   />
                 </div>
               </div>
 
-              <NutritionalTable nutrients={food.nutrients} />
+              <NutritionalTable data={food} />
             </DialogContent>
           </Dialog>
         ))}

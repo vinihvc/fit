@@ -1,9 +1,14 @@
 import React from 'react'
-import { FOOD } from '@/content/food'
+import { TACO } from '@/content/TACO'
+import { http } from '@/services/http'
 
 import ClientHomePage from './client-page'
 
-const fetchFood = async () => FOOD
+const fetchFood = async () => {
+  const { data } = await http('/taco')
+
+  return data
+}
 
 const RootPage = async () => {
   const food = await fetchFood()
