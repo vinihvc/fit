@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { cn } from '@/utils/cn'
-import { VariantProps, tv } from 'tailwind-variants'
+import { Slot } from '@radix-ui/react-slot'
+import { tv, VariantProps } from 'tailwind-variants'
+
+import { cn } from '@/lib/cn'
 
 export const buttonVariants = tv({
   base: [
@@ -46,16 +48,34 @@ export const buttonVariants = tv({
   },
 })
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants>
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  /**
+   * If true, the component will render the children as a child element.
+   */
+  asChild?: boolean
+}
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  (props, ref) => {
+    const {
+      type = 'button',
+      asChild,
+      variant,
+      size,
+      className,
+      ...rest
+    } = props
+
+    const Comp = asChild ? Slot : 'button'
+
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
+      <Comp
         ref={ref}
-        {...props}
+        type={type}
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...rest}
       />
     )
   },

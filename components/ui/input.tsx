@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useMergeRefs } from '@/hooks/use-merge-refs'
-import { cn } from '@/utils/cn'
 import { X } from 'lucide-react'
 
+import { cn } from '@/lib/cn'
 import { Button } from './button'
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>

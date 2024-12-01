@@ -1,21 +1,16 @@
 import { Metadata } from 'next'
-import { Sen as FontSans } from 'next/font/google'
-import { cn } from '@/utils/cn'
 
+import { cn } from '@/lib/cn'
 import { Providers } from './providers'
 
 import '@/styles/globals.css'
 
 import { SEO } from '@/constants/seo'
 
+import { fontSans } from '@/lib/font'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
-
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -26,7 +21,6 @@ export const metadata: Metadata = {
   applicationName: SEO.title,
   description: SEO.description,
   keywords: SEO.keywords,
-  themeColor: '#0A0A0A',
   openGraph: {
     locale: 'en',
     title: SEO.title,

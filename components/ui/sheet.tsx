@@ -1,10 +1,11 @@
 'use client'
 
 import * as React from 'react'
-import { cn } from '@/utils/cn'
 import * as SheetPrimitive from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { VariantProps, tv } from 'tailwind-variants'
+import { tv, VariantProps } from 'tailwind-variants'
+
+import { cn } from '@/lib/cn'
 
 export const Sheet = SheetPrimitive.Root
 
@@ -172,10 +173,7 @@ export const SheetHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      'flex flex-col space-y-2 text-center sm:text-left',
-      className,
-    )}
+    className={cn('flex flex-col gap-2 text-center sm:text-left', className)}
     {...props}
   />
 )
@@ -188,7 +186,7 @@ export const SheetFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2',
       className,
     )}
     {...props}

@@ -1,8 +1,9 @@
 'use client'
 
 import * as React from 'react'
-import { cn } from '@/utils/cn'
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog'
+
+import { cn } from '@/lib/cn'
 
 export const AlertDialog = AlertDialogPrimitive.Root
 
@@ -63,10 +64,7 @@ export const AlertDialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      'flex flex-col space-y-2 text-center sm:text-left',
-      className,
-    )}
+    className={cn('flex flex-col gap-2 text-center sm:text-left', className)}
     {...props}
   />
 )
@@ -79,7 +77,7 @@ export const AlertDialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2',
       className,
     )}
     {...props}

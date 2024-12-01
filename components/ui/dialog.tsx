@@ -1,9 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { cn } from '@/utils/cn'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
+
+import { cn } from '@/lib/cn'
 
 export const Dialog = DialogPrimitive.Root
 
@@ -81,7 +82,7 @@ export const DialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn('flex flex-col space-y-2 max-sm:text-center', className)}
+    className={cn('flex flex-col gap-2 max-sm:text-center', className)}
     {...props}
   />
 )
@@ -94,7 +95,7 @@ export const DialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-2',
       className,
     )}
     {...props}

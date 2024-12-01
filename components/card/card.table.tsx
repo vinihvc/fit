@@ -1,24 +1,22 @@
+import { TacoType } from '@/content/TACO'
 import { Croissant, CupSoda, Drumstick, Flame } from 'lucide-react'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 
 export type CardTableProps = {
-  nutrients: {
-    carbs: number
-    fat: number
-    calories: number
-    protein: number
-  }
+  data: TacoType
 }
 
-export const CardTable = ({ nutrients }: CardTableProps) => {
+export const CardTable = (props: CardTableProps) => {
+  const { data } = props
+
   return (
-    <div className="flex space-x-1 text-sm sm:space-x-3">
+    <div className="flex gap-1 text-sm sm:gap-3">
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center gap-1">
             <Flame className="h-3 w-3" />
-            <span>{nutrients.calories}</span>
+            <span>{data.energy_kcal.toFixed(1)}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -28,9 +26,9 @@ export const CardTable = ({ nutrients }: CardTableProps) => {
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center gap-1">
             <CupSoda className="h-3 w-3" />
-            <span>{nutrients.fat}</span>
+            <span>{data.saturated_g.toFixed(1)}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -40,10 +38,10 @@ export const CardTable = ({ nutrients }: CardTableProps) => {
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center gap-1">
             <Croissant className="h-3 w-3" />
 
-            <span>{nutrients.carbs}</span>
+            <span>{data.carbohydrate_g.toFixed(1)}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -53,9 +51,9 @@ export const CardTable = ({ nutrients }: CardTableProps) => {
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center gap-1">
             <Drumstick className="h-3 w-3" />
-            <span>{nutrients.protein}</span>
+            <span>{Math.round(data.protein_g)}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>

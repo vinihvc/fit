@@ -1,6 +1,6 @@
 import { TacoType } from '@/content/TACO'
-import { cn } from '@/utils/cn'
 
+import { cn } from '@/lib/cn'
 import { Table, TableBody, TableHead, TableRow } from '@/components/ui/table'
 
 export type NutritionalTableProps = {
@@ -15,19 +15,19 @@ export const NutritionalTable = (props: NutritionalTableProps) => {
       <TableBody>
         <TableRow>
           <TableHead className="font-semibold">Calories</TableHead>
-          <TableHead>{data.energy_kcal}</TableHead>
+          <TableHead>{data.energy_kcal.toFixed(1)}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Fat</TableHead>
-          <TableHead>{data.saturated_g}</TableHead>
+          <TableHead>{data.saturated_g.toFixed(1)}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Carbs</TableHead>
-          <TableHead>{data.carbohydrate_g}</TableHead>
+          <TableHead>{data.carbohydrate_g.toFixed(1)}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Protein</TableHead>
-          <TableHead>{data.protein_g}</TableHead>
+          <TableHead>{data.protein_g.toFixed(1)}</TableHead>
         </TableRow>
       </TableBody>
     </Table>
