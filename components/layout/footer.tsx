@@ -1,13 +1,10 @@
 import { CONFIG } from '@/constants/config'
-import { Globe2 } from 'lucide-react'
 
 export const Footer = () => {
   return (
     <footer className="container">
-      <div className="flex items-center justify-center gap-2 border-t py-6">
-        <Globe2 size={20} />
-
-        <p className="text-center text-sm leading-loose">
+      <div className="flex items-center justify-between gap-2 py-6 text-sm">
+        <p className="flex-1 text-center leading-loose">
           Built by{' '}
           <a
             href={CONFIG.twitter}
@@ -17,8 +14,9 @@ export const Footer = () => {
           >
             vinihvc
           </a>
-          .
         </p>
+
+        <div>&copy; Fit {new Date().getFullYear()}</div>
       </div>
     </footer>
   )

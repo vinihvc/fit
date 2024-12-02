@@ -10,6 +10,6 @@ export const SEO = {
     'Testing Library',
   ],
   thumb: '/images/thumb.png',
-  url: 'https://viniciusvicentini.com',
+  url: 'https://vini.one',
   twitter: '@vinihvc',
 }
