@@ -1,5 +1,6 @@
 import { TacoType } from '@/content/TACO'
 
+import { ApiPagination, ApiResponse } from '@/types/common'
 import { http } from './http'
 
 interface GetItemsArgs {
@@ -26,13 +27,11 @@ export const getItems = async (args?: GetItemsArgs) => {
   if (page) queryParams.set('page', page)
   if (limit) queryParams.set('limit', limit)
 
-  const { data } = await http<{ data: TacoType[] }>(`/foods?${queryParams}`)
-
-  return data
+  return await http<ApiResponse<TacoType[]> & ApiPagination>(
+    `/foods?${queryParams}`,
+  )
 }
 
 export const getItem = async (id: string) => {
-  const { data } = await http<{ data: TacoType }>(`/food?id=${id}`)
-
-  return data
+  return await http<ApiResponse<TacoType>>(`/food?id=${id}`)
 }

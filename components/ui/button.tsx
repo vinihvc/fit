@@ -34,6 +34,7 @@ export const buttonVariants = tv({
       link: 'bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-neutral-900 dark:text-neutral-100 hover:bg-transparent dark:hover:bg-transparent',
     },
     size: {
+      icon: 'h-9 w-9',
       sm: 'h-9 px-2 rounded-md',
       md: 'h-10 py-2 px-4',
       lg: 'h-11 px-8 rounded-md',

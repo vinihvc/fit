@@ -16,7 +16,7 @@ export const CardTable = (props: CardTableProps) => {
         <TooltipTrigger asChild>
           <div className="flex items-center gap-1">
             <Flame className="h-3 w-3" />
-            <span>{data.energy_kcal}</span>
+            <span>{Math.round(data.energy_kcal) || 0}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -28,7 +28,7 @@ export const CardTable = (props: CardTableProps) => {
         <TooltipTrigger asChild>
           <div className="flex items-center gap-1">
             <CupSoda className="h-3 w-3" />
-            <span>{data.saturated_g}</span>
+            <span>{Math.round(data.saturated_g) || 0}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -41,7 +41,7 @@ export const CardTable = (props: CardTableProps) => {
           <div className="flex items-center gap-1">
             <Croissant className="h-3 w-3" />
 
-            <span>{data.carbohydrate_g}</span>
+            <span>{Math.round(data.carbohydrate_g) || 0}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>
@@ -53,7 +53,7 @@ export const CardTable = (props: CardTableProps) => {
         <TooltipTrigger asChild>
           <div className="flex items-center gap-1">
             <Drumstick className="h-3 w-3" />
-            <span>{Math.round(data.protein_g)}</span>
+            <span>{Math.round(data.protein_g) || 0}</span>
           </div>
         </TooltipTrigger>
         <TooltipContent>

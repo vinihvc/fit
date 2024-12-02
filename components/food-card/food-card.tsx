@@ -37,7 +37,7 @@ export const FoodCard = (props: FoodCardProps) => {
         </CardHeader>
 
         <CardContent className="mt-3">
-          <CardTitle>{data.description}</CardTitle>
+          <CardTitle className="line-clamp-1">{data.description}</CardTitle>
         </CardContent>
 
         <CardFooter>
