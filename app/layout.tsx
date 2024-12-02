@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 
-import { cn } from '@/lib/cn'
 import { Providers } from './providers'
 
 import '@/styles/globals.css'
@@ -8,9 +7,10 @@ import '@/styles/globals.css'
 import { SEO } from '@/constants/seo'
 
 import { fontSans } from '@/lib/font'
+import { BackgroundGrid } from '@/components/background/grid'
+import { MediaQueryDebug } from '@/components/debug/media-query'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
-import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -49,11 +49,13 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
         <Providers>
           <Header />
 
+          <BackgroundGrid />
+
           <main className="flex flex-1 flex-col">{children}</main>
 
           <Footer />
 
-          <TailwindIndicator />
+          <MediaQueryDebug />
         </Providers>
       </body>
     </html>

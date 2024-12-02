@@ -1,7 +1,7 @@
 import { TacoType } from '@/content/TACO'
 import { Croissant, CupSoda, Drumstick, Flame } from 'lucide-react'
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger } from '../tooltip'
 
 export type CardTableProps = {
   data: TacoType

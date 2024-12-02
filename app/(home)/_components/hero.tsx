@@ -11,7 +11,7 @@ export const HeroSection = (props: HeroSectionProps) => {
   return (
     <section
       className={cn(
-        'relative flex min-h-[calc(100vh-14rem)] items-center justify-center bg-gradient-to-b from-green-500/40 to-background dark:from-green-500/10',
+        'relative flex min-h-[calc(100vh-14rem)] items-center justify-center',
         className,
       )}
       {...rest}

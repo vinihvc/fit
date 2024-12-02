@@ -3,16 +3,9 @@ import Link from 'next/link'
 import { TacoType } from '@/content/TACO'
 
 import { cn } from '@/lib/cn'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../card'
 import { ShimmerImage } from '../shimmer-image'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../ui/card'
-import { CardTable, CardTableProps } from './food-card.table'
+import { CardTable } from './food-card.table'
 
 interface FoodCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

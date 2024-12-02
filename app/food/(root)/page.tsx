@@ -1,7 +1,7 @@
 import React from 'react'
 import { getItems } from '@/services/requests'
 
-import { FoodCard } from '@/components/food-card'
+import { FoodCard } from '@/components/ui/food-card'
 import {
   Pagination,
   PaginationContent,
@@ -68,7 +68,7 @@ const FoodPage = async (props: FoodPageProps) => {
     currentPage < totalPages ? createPageUrl(currentPage + 1) : null
 
   return (
-    <div className="container max-w-screen-lg py-5">
+    <div className="container max-w-screen-lg pb-5 pt-32">
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
         {data.map((food) => (
           <FoodCard key={food.id} data={food} />

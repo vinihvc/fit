@@ -7,7 +7,7 @@ import { HeroSection } from './_components/hero'
 const HomePage = () => {
   return (
     <>
-      <HeroSection />
+      <HeroSection className="pt-32" />
 
       <FeaturesSection className="py-20" />
 
