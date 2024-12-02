@@ -7,8 +7,6 @@ export const GET = async (request: Request) => {
 
   const id = Number(searchParams.get('id'))
 
-  console.log('id', id)
-
   if (!id) {
     return Response.json(
       {
@@ -29,5 +27,5 @@ export const GET = async (request: Request) => {
     )
   }
 
-  return Response.json(data)
+  return Response.json({ data })
 }

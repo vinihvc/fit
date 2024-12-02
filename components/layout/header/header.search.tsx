@@ -1,11 +1,16 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { debounce } from '@/utils/debounce'
 
+import { cn } from '@/lib/cn'
 import { Input } from '@/components/ui/input'
 
-export const Search = () => {
+interface HeaderSearchProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {}
+
+export const HeaderSearch = (props: HeaderSearchProps) => {
+  const { className, ...rest } = props
+
   const router = useRouter()
 
   const searchParams = useSearchParams()
@@ -15,17 +20,16 @@ export const Search = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
-    // debounce(() => {
-    router.push(`/item?search=${value}`)
-    // })
+    router.push(`/food?search=${value}`)
   }
 
   return (
     <Input
-      name="search"
       defaultValue={searchParam}
+      className={cn('bg-card', className)}
       placeholder="Search food"
       onChange={handleChange}
+      {...rest}
     />
   )
 }

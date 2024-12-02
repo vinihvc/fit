@@ -17,7 +17,7 @@ type RootLayoutProps = {
 }
 
 export const metadata: Metadata = {
-  title: { absolute: SEO.title, template: `%s // ${SEO.title}` },
+  title: { absolute: SEO.title, template: `%s // ${SEO.title}` },
   applicationName: SEO.title,
   description: SEO.description,
   keywords: SEO.keywords,
@@ -45,15 +45,7 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          'font-sans antialiased',
-          'flex h-full min-h-screen flex-col',
-          'bg-white dark:bg-neutral-900',
-          'text-neutral-900 dark:text-neutral-50',
-          fontSans.variable,
-        )}
-      >
+      <body className={fontSans.variable}>
         <Providers>
           <Header />
 

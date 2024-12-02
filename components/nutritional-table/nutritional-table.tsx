@@ -15,19 +15,19 @@ export const NutritionalTable = (props: NutritionalTableProps) => {
       <TableBody>
         <TableRow>
           <TableHead className="font-semibold">Calories</TableHead>
-          <TableHead>{data.energy_kcal.toFixed(1)}</TableHead>
+          <TableHead>{data.energy_kcal}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Fat</TableHead>
-          <TableHead>{data.saturated_g.toFixed(1)}</TableHead>
+          <TableHead>{data.saturated_g}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Carbs</TableHead>
-          <TableHead>{data.carbohydrate_g.toFixed(1)}</TableHead>
+          <TableHead>{data.carbohydrate_g}</TableHead>
         </TableRow>
         <TableRow>
           <TableHead className="font-semibold">Protein</TableHead>
-          <TableHead>{data.protein_g.toFixed(1)}</TableHead>
+          <TableHead>{data.protein_g}</TableHead>
         </TableRow>
       </TableBody>
     </Table>

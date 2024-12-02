@@ -21,7 +21,7 @@ const toBase64 = (str: string) =>
     ? Buffer.from(str).toString('base64')
     : window.btoa(str)
 
-export const Image = (props: ImageProps) => {
+export const ShimmerImage = (props: ImageProps) => {
   const { className, ...rest } = props
 
   return (
