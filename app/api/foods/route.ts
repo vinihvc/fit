@@ -2,8 +2,6 @@ import type { NextRequest } from 'next/server'
 import { TACO } from '@/content/TACO'
 import { z } from 'zod'
 
-export const revalidate = 3600 * 24 * 7 // 1 week
-
 const schema = z.object({
   search: z.string().trim().min(0).optional().default(''),
   page: z.coerce.number().min(0).optional().default(0),

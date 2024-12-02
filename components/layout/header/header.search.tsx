@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 interface HeaderSearchProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {}
 
-export const HeaderSearch = (props: HeaderSearchProps) => {
+const HeaderSearch = (props: HeaderSearchProps) => {
   const { className, ...rest } = props
 
   const router = useRouter()
@@ -33,3 +33,5 @@ export const HeaderSearch = (props: HeaderSearchProps) => {
     />
   )
 }
+
+export default HeaderSearch

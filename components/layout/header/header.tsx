@@ -7,8 +7,9 @@ import { cn } from '@/lib/utils'
 import { NavLink } from '@/components/ui/nav-link'
 import { Button } from '../../ui/button'
 import { HEADER_DATA } from './header.data'
-import { HeaderSearch } from './header.search'
 import { HeaderTheme } from './header.theme'
+
+const HeaderSearch = React.lazy(() => import('./header.search'))
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -41,7 +42,9 @@ export const Header = (props: HeaderProps) => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <HeaderSearch />
+          <React.Suspense>
+            <HeaderSearch />
+          </React.Suspense>
 
           <HeaderTheme />
         </div>

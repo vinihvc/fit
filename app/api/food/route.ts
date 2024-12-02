@@ -1,7 +1,5 @@
 import { TACO } from '@/content/TACO'
 
-export const revalidate = 3600 * 24 * 7 // 1 week
-
 export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url)
 
