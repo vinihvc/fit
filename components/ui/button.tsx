@@ -27,11 +27,11 @@ export const buttonVariants = tv({
         'hover:bg-destructive/90',
       ],
       outline: [
-        'border border-input',
-        'text-accent',
+        'border border-primary',
+        'text-primary',
         'bg-transparent',
         'shadow-sm',
-        'hover:bg-accent/10',
+        'hover:bg-primary/10',
       ],
       secondary: [
         'bg-secondary',

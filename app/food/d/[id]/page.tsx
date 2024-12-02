@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getItem } from '@/services/requests'
 
@@ -31,11 +32,16 @@ const FoodDetailPage = async (props: FoodDetailPageProps) => {
   return (
     <div className="container max-w-screen-lg pb-5 pt-32">
       <div className="rounded-lg bg-background/50 px-4 py-5 backdrop-blur">
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <h1 className="text-xl font-extrabold">{data.description}</h1>
 
-            <h2 className="text-sm text-muted-foreground">{data.category}</h2>
+            <Link
+              href={`/categories`}
+              className="text-sm text-muted-foreground"
+            >
+              {data.category}
+            </Link>
           </div>
 
           <NutritionTable data={data} />

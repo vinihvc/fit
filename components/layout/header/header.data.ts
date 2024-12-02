@@ -7,8 +7,4 @@ export const HEADER_DATA = [
     title: 'Recipes',
     link: '/recipes',
   },
-  {
-    title: 'Categories',
-    link: '/categories',
-  },
 ]
