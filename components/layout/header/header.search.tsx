@@ -41,14 +41,16 @@ const HeaderSearch = (props: HeaderSearchProps) => {
   })
 
   React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         toggle()
       }
     }
-    document.addEventListener('keydown', down)
-    return () => document.removeEventListener('keydown', down)
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
   return (

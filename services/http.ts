@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:3000/api'
+import { env } from '@/lib/envs'
 
 export const http = async <T>(url: string, options: RequestInit = {}) => {
-  const fullUrl = `${BASE_URL}/${url}`
+  const fullUrl = `${env.NEXT_PUBLIC_BASE_URL}/api/${url}`
 
   const response = await fetch(fullUrl, {
     method: options.method || 'GET',
