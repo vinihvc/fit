@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getItem } from '@/services/requests'
+import { getItem, getItems } from '@/services/requests'
 
 import { BurnCalories } from '@/components/ui/burn-calories'
 import { NutritionTable } from '@/components/ui/nutrition-table'
@@ -10,6 +10,8 @@ interface FoodDetailPageProps {
     id: string
   }>
 }
+
+export const dynamic = 'force-static'
 
 export const generateMetadata = async (props: FoodDetailPageProps) => {
   const { id } = await props.params
