@@ -19,7 +19,7 @@ export const Header = (props: HeaderProps) => {
   return (
     <header
       className={cn(
-        'sm:shadow-ln-xs fixed inset-x-0 z-40 mx-auto max-w-screen-lg bg-background px-4 sm:top-4 sm:rounded-3xl',
+        'fixed inset-x-0 z-40 mx-auto max-w-screen-lg bg-background px-4 sm:top-4 sm:rounded-3xl sm:shadow-ln-xs',
         RemoveScroll.classNames.zeroRight,
         className,
       )}

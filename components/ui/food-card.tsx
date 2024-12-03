@@ -16,7 +16,7 @@ export const FoodCard = (props: FoodCardProps) => {
   const { data, className, ...rest } = props
 
   return (
-    <Link href={`/food/d/${data.id}`} key={data.description}>
+    <Link href={`/food/${data.id}`} key={data.description}>
       <Card className={cn(className)} {...rest}>
         <CardHeader className="space-y-2 px-2 py-4">
           <CardTitle className="line-clamp-1">{data.description}</CardTitle>

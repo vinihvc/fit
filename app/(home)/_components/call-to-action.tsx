@@ -22,7 +22,7 @@ export const CallToActionSection = (props: CallToActionSectionProps) => {
         </p>
 
         <Button variant="secondary" size="lg" asChild>
-          <Link href="/food">Get Started Now</Link>
+          <Link href="/recipes">Get Started Now</Link>
         </Button>
       </div>
     </div>

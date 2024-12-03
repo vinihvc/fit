@@ -30,7 +30,7 @@ export const HeroSection = (props: HeroSectionProps) => {
 
           <div>
             <Button size="lg" asChild>
-              <Link href="/food">Start browsing</Link>
+              <Link href="/recipes">Start browsing</Link>
             </Button>
           </div>
         </div>
