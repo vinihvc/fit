@@ -1,8 +1,6 @@
 'use client'
 
 import React from 'react'
-import { Linden_Hill } from 'next/font/google'
-import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useToggle } from '@/hooks/use-toggle'
 import { getItems } from '@/services/requests'
@@ -51,7 +49,7 @@ const HeaderSearch = (props: HeaderSearchProps) => {
     document.addEventListener('keydown', handleKeyDown)
 
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [toggle])
 
   return (
     <>

@@ -17,6 +17,7 @@ type RootLayoutProps = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SEO.url),
   title: { absolute: SEO.title, template: `%s // ${SEO.title}` },
   applicationName: SEO.title,
   description: SEO.description,

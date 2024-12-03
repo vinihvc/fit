@@ -6,7 +6,7 @@ import React from 'react'
 export const useToggle = (initialState: boolean) => {
   const [state, setState] = React.useState(initialState)
 
-  const toggle = () => setState((prev) => !prev)
+  const toggle = React.useCallback(() => setState((prev) => !prev), [])
 
   return [state, toggle] as const
 }
