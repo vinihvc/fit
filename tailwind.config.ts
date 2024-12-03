@@ -52,13 +52,9 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
+      },
+      boxShadow: {
+        'ln-xs': '0 0 #0000,0 0 #0000,var(--tw-shadow)',
       },
       keyframes: {
         'accordion-down': {

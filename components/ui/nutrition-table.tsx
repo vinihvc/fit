@@ -1,4 +1,5 @@
 import { TacoType } from '@/content/TACO'
+import { factsMapper } from '@/utils/mappers'
 
 import { cn } from '@/lib/cn'
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
@@ -14,19 +15,7 @@ export interface NutritionTableProps
 export const NutritionTable = (props: NutritionTableProps) => {
   const { data, className, ...rest } = props
 
-  const facts = [
-    { name: 'Calories', value: Number(data.energy_kcal) || 0, unit: 'kcal' },
-    {
-      name: 'Carbohydrate',
-      value: Number(data.carbohydrate_g) || 0,
-      unit: 'g',
-    },
-    { name: 'Protein', value: Number(data.protein_g) || 0, unit: 'g' },
-    { name: 'Fat', value: Number(data.saturated_g) || 0, unit: 'g' },
-    { name: 'Fiber', value: Number(data.fiber_g) || 0, unit: 'g' },
-    { name: 'Vitamin C', value: Number(data.vitaminC_mg) || 0, unit: 'mg' },
-    { name: 'Sodium', value: Number(data.sodium_mg) || 0, unit: 'mg' },
-  ]
+  const facts = factsMapper(data)
 
   return (
     <div
@@ -40,12 +29,12 @@ export const NutritionTable = (props: NutritionTableProps) => {
 
       <div className="text-sm text-muted-foreground">Portion of 100g</div>
 
-      <Table className="border">
+      <Table className="mt-2 rounded border">
         <TableBody>
           {facts.map((fact) => (
             <TableRow>
               <TableCell className="font-bold">{fact.name}</TableCell>
-              <TableCell>{`${fact.value.toFixed(1)} ${fact.unit}`}</TableCell>
+              <TableCell>{`${fact.value} ${fact.unit}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>

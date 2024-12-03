@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getItem } from '@/services/requests'
 
+import { BurnCalories } from '@/components/ui/burn-calories'
 import { NutritionTable } from '@/components/ui/nutrition-table'
 
 interface FoodDetailPageProps {
@@ -20,7 +21,7 @@ export const generateMetadata = async (props: FoodDetailPageProps) => {
   }
 
   return {
-    title: `Detail ${data.description}`,
+    title: `${data.description}`,
   }
 }
 
@@ -44,7 +45,11 @@ const FoodDetailPage = async (props: FoodDetailPageProps) => {
             </Link>
           </div>
 
-          <NutritionTable data={data} />
+          <div className="space-y-5">
+            <NutritionTable data={data} />
+
+            <BurnCalories calories={data.energy_kcal} />
+          </div>
         </div>
       </div>
     </div>

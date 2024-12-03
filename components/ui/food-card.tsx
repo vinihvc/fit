@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { TacoType } from '@/content/TACO'
 
 import { cn } from '@/lib/cn'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../card'
-import { CardTable } from './food-card.table'
+import { Card, CardHeader, CardTitle } from './card'
 
 interface FoodCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -21,8 +20,6 @@ export const FoodCard = (props: FoodCardProps) => {
       <Card className={cn(className)} {...rest}>
         <CardHeader className="space-y-2 px-2 py-4">
           <CardTitle className="line-clamp-1">{data.description}</CardTitle>
-
-          <CardTable data={data} />
         </CardHeader>
       </Card>
     </Link>

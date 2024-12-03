@@ -19,31 +19,35 @@ export const Header = (props: HeaderProps) => {
   return (
     <header
       className={cn(
-        'container fixed inset-x-0 z-40 max-w-screen-lg bg-background sm:top-4 sm:rounded-lg sm:shadow-sm',
+        'sm:shadow-ln-xs fixed inset-x-0 z-40 mx-auto max-w-screen-lg bg-background px-4 sm:top-4 sm:rounded-3xl',
         RemoveScroll.classNames.zeroRight,
         className,
       )}
       {...rest}
     >
-      <div className="flex h-16 items-center justify-between gap-2">
-        <Link href="/" className="inline-flex items-center gap-2">
-          <Salad className="size-5 text-green-500" />
-          <span className="text-xl font-bold">Fit</span>
-        </Link>
+      <div className="flex h-16 items-center justify-between gap-5">
+        <div className="flex gap-4">
+          <div className="flex items-center justify-between gap-2">
+            <Link href="/" className="inline-flex items-center gap-2">
+              <Salad className="size-5 text-green-500" />
+              <span className="text-xl font-bold">Fit</span>
+            </Link>
+          </div>
 
-        <nav className="flex items-center justify-between gap-1">
-          {HEADER_DATA.map((item) => (
-            <Button key={item.link} variant="ghost" size="sm" asChild>
-              <NavLink href={item.link} className="[&.active]:bg-primary/10">
-                {item.title}
-              </NavLink>
-            </Button>
-          ))}
-        </nav>
+          <nav>
+            {HEADER_DATA.map((item) => (
+              <Button key={item.link} variant="link" size="md" asChild>
+                <NavLink href={item.link} className="[&.active]:underline">
+                  {item.title}
+                </NavLink>
+              </Button>
+            ))}
+          </nav>
+        </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <React.Suspense>
-            <HeaderSearch className="hidden sm:block" />
+            <HeaderSearch />
           </React.Suspense>
 
           <HeaderTheme />
