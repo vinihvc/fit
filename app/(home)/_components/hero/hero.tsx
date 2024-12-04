@@ -1,7 +1,5 @@
-import Link from 'next/link'
-
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { HeroButton } from './hero.button'
 
 interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -29,7 +27,7 @@ export const HeroSection = (props: HeroSectionProps) => {
           </p>
 
           <div>
-            <Button size="lg">Start browsing</Button>
+            <HeroButton />
           </div>
         </div>
       </div>

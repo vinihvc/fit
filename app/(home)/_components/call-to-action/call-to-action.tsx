@@ -1,7 +1,5 @@
-import Link from 'next/link'
-
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { CallToActionButton } from './call-to-action.button'
 
 interface CallToActionSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {}
@@ -21,9 +19,7 @@ export const CallToActionSection = (props: CallToActionSectionProps) => {
           proper nutrition.
         </p>
 
-        <Button variant="secondary" size="lg">
-          Get Started Now
-        </Button>
+        <CallToActionButton />
       </div>
     </div>
   )

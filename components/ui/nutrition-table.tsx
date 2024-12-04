@@ -32,7 +32,7 @@ export const NutritionTable = (props: NutritionTableProps) => {
       <Table className="mt-2 rounded border">
         <TableBody>
           {facts.map((fact) => (
-            <TableRow>
+            <TableRow key={fact.name}>
               <TableCell className="font-bold">{fact.name}</TableCell>
               <TableCell>{`${fact.value} ${fact.unit}`}</TableCell>
             </TableRow>

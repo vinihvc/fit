@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { recipes } from '@/content/recipes'
 import { getItems } from '@/services/requests'
 import { useQuery } from '@tanstack/react-query'
+import { atom, useAtom } from 'jotai'
 import { Clock } from 'lucide-react'
 
 import { Badge } from '../ui/badge'
@@ -19,17 +20,22 @@ import {
 import { DialogDescription, DialogTitle } from '../ui/dialog'
 import { ShimmerImage } from '../ui/shimmer-image'
 
-interface SearchDialogProps extends React.ComponentProps<typeof CommandDialog> {
-  /**
-   * Callback function to handle the selection of an item
-   */
-  onSelect?: (value: string) => void
+const toggleGlobalSearchAtom = atom(false)
+
+export const useToggleGlobalSearch = () => {
+  const [isOpen, setIsOpen] = useAtom(toggleGlobalSearchAtom)
+
+  const handleToggle = React.useCallback(() => {
+    setIsOpen(!isOpen)
+  }, [isOpen, setIsOpen])
+
+  return [isOpen, handleToggle] as const
 }
 
-export const SearchDialog = (props: SearchDialogProps) => {
-  const { onSelect } = props
-
+const GlobalSearchDialog = () => {
   const searchParams = useSearchParams()
+
+  const [isOpen, toggle] = useToggleGlobalSearch()
 
   const router = useRouter()
 
@@ -53,7 +59,7 @@ export const SearchDialog = (props: SearchDialogProps) => {
   }, [])
 
   return (
-    <CommandDialog {...props}>
+    <CommandDialog open={isOpen} onOpenChange={toggle}>
       <DialogTitle className="sr-only">Search</DialogTitle>
       <DialogDescription className="sr-only">
         Quickly search for recipes or ingredients by name
@@ -76,7 +82,7 @@ export const SearchDialog = (props: SearchDialogProps) => {
               value={item.description}
               onSelect={() => {
                 router.push(`/food/${item.id}`)
-                onSelect?.(item.description)
+                toggle()
               }}
               asChild
             >
@@ -111,7 +117,7 @@ export const SearchDialog = (props: SearchDialogProps) => {
               key={item.id}
               onSelect={() => {
                 router.push(`/recipe/${item.id}`)
-                onSelect?.(item.title)
+                toggle()
               }}
               asChild
             >
@@ -143,3 +149,5 @@ export const SearchDialog = (props: SearchDialogProps) => {
     </CommandDialog>
   )
 }
+
+export default GlobalSearchDialog

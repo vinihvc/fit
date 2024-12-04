@@ -45,7 +45,7 @@ export const BurnCalories = (props: BurnCaloriesProps) => {
         </Tooltip>
       </div>
 
-      <div className="mt-2 grid grid-cols-4 gap-4">
+      <div className="mt-2 grid grid-cols-4 gap-2">
         <Card className="flex flex-col px-2 py-1">
           <span className="text-sm text-muted-foreground">Steps</span>
           <span className="font-bold">9071</span>

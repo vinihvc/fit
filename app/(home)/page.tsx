@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CallToActionSection } from './_components/call-to-action'
+import { CallToActionSection } from './_components/call-to-action/call-to-action'
 import { FeaturesSection } from './_components/features'
 import { HeroSection } from './_components/hero'
 

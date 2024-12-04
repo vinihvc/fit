@@ -20,8 +20,6 @@ export const GET = async (request: NextRequest) => {
   try {
     const searchParams = request.nextUrl.searchParams
 
-    console.log(searchParams)
-
     const { search, page, limit } = parseParams(searchParams)
 
     let filteredData = TACO

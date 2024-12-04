@@ -4,6 +4,7 @@ import { Providers } from './providers'
 
 import '@/styles/globals.css'
 
+import React from 'react'
 import { SEO } from '@/constants/seo'
 
 import { fontSans } from '@/lib/font'
@@ -11,6 +12,10 @@ import { BackgroundGrid } from '@/components/background/grid'
 import { MediaQueryDebug } from '@/components/debug/media-query'
 import { Footer } from '@/components/layout/footer'
 import { Header } from '@/components/layout/header'
+
+const GlobalSearchDialog = React.lazy(
+  () => import('@/components/dialog/global-search'),
+)
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -57,6 +62,8 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
           <Footer />
 
           <MediaQueryDebug />
+
+          <GlobalSearchDialog />
         </Providers>
       </body>
     </html>
