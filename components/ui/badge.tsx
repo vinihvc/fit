@@ -49,7 +49,5 @@ export interface BadgeProps
 export const Badge = (props: BadgeProps) => {
   const { variant, className, ...rest } = props
 
-  return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+  return <div className={cn(badgeVariants({ variant }), className)} {...rest} />
 }

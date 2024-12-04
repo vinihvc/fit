@@ -16,6 +16,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandLoading,
 } from '@/components/ui/command'
 import { DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { GlobalSearchImage } from './global-search.image'
@@ -28,7 +29,7 @@ const GlobalSearchDialog = () => {
 
   const [isOpen, toggle] = useToggleGlobalSearch()
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['food', search],
     queryFn: () => getItems({ search }),
   })
@@ -63,7 +64,11 @@ const GlobalSearchDialog = () => {
       />
 
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+        {!isLoading && data?.data.length === 0 && (
+          <CommandEmpty>No results found.</CommandEmpty>
+        )}
+
+        {isLoading && <CommandLoading>Loading...</CommandLoading>}
 
         <CommandGroup heading="Foods">
           {data?.data.map((item) => (
@@ -81,13 +86,6 @@ const GlobalSearchDialog = () => {
                   <GlobalSearchImage data={{ title: item.description }} />
 
                   <span>{item.description}</span>
-                </div>
-
-                <div>
-                  <Badge>
-                    <Clock className="mr-1 !h-3 !w-3" />
-                    60min
-                  </Badge>
                 </div>
               </div>
             </CommandItem>
@@ -111,12 +109,11 @@ const GlobalSearchDialog = () => {
                   <span>{item.title}</span>
                 </div>
 
-                <div>
-                  <Badge>
-                    <Clock className="mr-1 !h-3 !w-3" />
-                    60min
-                  </Badge>
-                </div>
+                <Badge>
+                  <Clock className="mr-1.5 !h-3 !w-3" />
+                  60
+                  <span className="text-[10px]">min</span>
+                </Badge>
               </div>
             </CommandItem>
           ))}

@@ -60,7 +60,7 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
+    className={cn('max-h-[400px] overflow-y-auto overflow-x-hidden', className)}
     {...props}
   />
 ))
@@ -79,6 +79,19 @@ const CommandEmpty = React.forwardRef<
 ))
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName
+
+const CommandLoading = React.forwardRef<
+  React.ElementRef<typeof CommandPrimitive.Loading>,
+  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Loading>
+>((props, ref) => (
+  <CommandPrimitive.Loading
+    ref={ref}
+    className="py-6 text-center text-sm"
+    {...props}
+  />
+))
+
+CommandLoading.displayName = CommandPrimitive.Loading.displayName
 
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
@@ -106,6 +119,7 @@ const CommandSeparator = React.forwardRef<
     {...props}
   />
 ))
+
 CommandSeparator.displayName = CommandPrimitive.Separator.displayName
 
 const CommandItem = React.forwardRef<
@@ -149,6 +163,7 @@ export {
   CommandInput,
   CommandList,
   CommandEmpty,
+  CommandLoading,
   CommandGroup,
   CommandItem,
   CommandShortcut,

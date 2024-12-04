@@ -25,9 +25,18 @@ export const GET = async (request: NextRequest) => {
     let filteredData = TACO
 
     if (search) {
-      const searchLower = search.toLowerCase()
+      const searchLower = search
+        .toLowerCase()
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+
       filteredData = TACO.filter((food) =>
-        food.description.toLowerCase().includes(searchLower),
+        food.description
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .includes(searchLower),
       )
     }
 
