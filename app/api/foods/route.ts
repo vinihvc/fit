@@ -5,14 +5,14 @@ import { z } from 'zod'
 const schema = z.object({
   search: z.string().trim().min(0).optional().default(''),
   page: z.coerce.number().min(0).optional().default(0),
-  limit: z.coerce.number().min(1).max(100).optional().default(16),
+  limit: z.coerce.number().min(1).max(100).optional().default(4),
 })
 
 const parseParams = (searchParams: URLSearchParams) => {
   return schema.parse({
     search: searchParams.get('search') || '',
     page: Number(searchParams.get('page')) || 0,
-    limit: Number(searchParams.get('limit')) || 16,
+    limit: Number(searchParams.get('limit')) || 4,
   })
 }
 

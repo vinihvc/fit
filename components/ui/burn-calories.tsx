@@ -28,16 +28,18 @@ export const BurnCalories = (props: BurnCaloriesProps) => {
     >
       <div className="flex gap-2">
         <div className="text-lg font-bold">{`How to burn ${formattedCalories} calories`}</div>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <Button className="size-6" size="icon" variant="ghost">
               <Info className="h-2 w-2" />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>
+
+          <TooltipContent className="max-w-xs">
             <p>
-              The number of calories you burn depends on your weight, height,
-              age, and gender.
+              Approximately, the number of calories you burn depends on your
+              weight, height, age, and gender.
             </p>
           </TooltipContent>
         </Tooltip>

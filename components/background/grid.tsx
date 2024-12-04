@@ -1,7 +1,7 @@
 export const BackgroundGrid = () => {
   return (
     <>
-      <div className="absolute right-0 top-0 -z-40 h-dvh w-screen bg-gradient-to-b from-green-500/40 to-background dark:from-green-500/10"></div>
+      <div className="absolute right-0 top-0 -z-40 h-dvh w-screen bg-gradient-to-b from-green-500/20 to-background dark:from-green-500/10"></div>
 
       <svg
         className="absolute right-0 top-0 -z-50 h-screen w-screen opacity-10 dark:opacity-5"

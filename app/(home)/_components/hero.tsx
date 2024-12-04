@@ -29,9 +29,7 @@ export const HeroSection = (props: HeroSectionProps) => {
           </p>
 
           <div>
-            <Button size="lg" asChild>
-              <Link href="/recipes">Start browsing</Link>
-            </Button>
+            <Button size="lg">Start browsing</Button>
           </div>
         </div>
       </div>

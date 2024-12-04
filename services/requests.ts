@@ -1,3 +1,4 @@
+import { Recipe, recipes } from '@/content/recipes'
 import { TacoType } from '@/content/TACO'
 
 import { ApiPagination, ApiResponse } from '@/types/common'
@@ -34,4 +35,10 @@ export const getItems = async (args?: GetItemsArgs) => {
 
 export const getItem = async (id: string) => {
   return await http<ApiResponse<TacoType>>(`/food?id=${id}`)
+}
+
+export const getRecipe = async (id: string) => {
+  const findRecipe = recipes.find((recipe) => recipe.id === id)
+
+  return findRecipe
 }

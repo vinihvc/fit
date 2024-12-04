@@ -21,8 +21,8 @@ export const CallToActionSection = (props: CallToActionSectionProps) => {
           proper nutrition.
         </p>
 
-        <Button variant="secondary" size="lg" asChild>
-          <Link href="/recipes">Get Started Now</Link>
+        <Button variant="secondary" size="lg">
+          Get Started Now
         </Button>
       </div>
     </div>

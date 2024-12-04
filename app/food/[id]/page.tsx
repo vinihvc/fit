@@ -41,7 +41,7 @@ const FoodDetailPage = async (props: FoodDetailPageProps) => {
 
             <Link
               href={`/categories`}
-              className="text-sm text-muted-foreground"
+              className="text-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:text-foreground"
             >
               {data.category}
             </Link>

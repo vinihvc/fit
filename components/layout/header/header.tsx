@@ -4,9 +4,6 @@ import { Salad } from 'lucide-react'
 import { RemoveScroll } from 'react-remove-scroll'
 
 import { cn } from '@/lib/utils'
-import { NavLink } from '@/components/ui/nav-link'
-import { Button } from '../../ui/button'
-import { HEADER_DATA } from './header.data'
 import { HeaderTheme } from './header.theme'
 
 const HeaderSearch = React.lazy(() => import('./header.search'))
@@ -34,7 +31,7 @@ export const Header = (props: HeaderProps) => {
             </Link>
           </div>
 
-          <nav>
+          {/* <nav>
             {HEADER_DATA.map((item) => (
               <Button key={item.link} variant="link" size="md" asChild>
                 <NavLink href={item.link} className="[&.active]:underline">
@@ -42,7 +39,7 @@ export const Header = (props: HeaderProps) => {
                 </NavLink>
               </Button>
             ))}
-          </nav>
+          </nav> */}
         </div>
 
         <div className="flex items-center gap-2">
