@@ -16,7 +16,7 @@ export const HeroSection = (props: HeroSectionProps) => {
     >
       <div className="container">
         <div className="text-center">
-          <h1 className="mb-8 text-6xl font-extrabold leading-tight">
+          <h1 className="mb-8 text-5xl font-extrabold leading-tight sm:text-6xl">
             Transform Your Life Through
             <span className="mt-2 block text-green-600">Healthy Nutrition</span>
           </h1>

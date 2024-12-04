@@ -20,7 +20,7 @@ export const NutritionTable = (props: NutritionTableProps) => {
   return (
     <div
       className={cn(
-        'rounded-lg bg-background/50 px-4 py-5 backdrop-blur',
+        'sm:rounded-lg sm:bg-background/50 sm:px-4 sm:py-5 sm:backdrop-blur',
         className,
       )}
       {...rest}

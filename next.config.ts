@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     typedRoutes: true,
   },
   images: {
-    domains: ['picsum.photos', 'images.unsplash.com'],
+    domains: ['dummyimage.com', 'images.unsplash.com'],
   },
 }
 

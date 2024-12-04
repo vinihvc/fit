@@ -4,11 +4,12 @@ import React from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { recipes } from '@/content/recipes'
 import { getItems } from '@/services/requests'
+import { debounce } from '@/utils/debounce'
 import { useQuery } from '@tanstack/react-query'
-import { atom, useAtom } from 'jotai'
 import { Clock } from 'lucide-react'
+import { useTheme } from 'next-themes'
 
-import { Badge } from '../ui/badge'
+import { Badge } from '@/components/ui/badge'
 import {
   CommandDialog,
   CommandEmpty,
@@ -16,30 +17,19 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '../ui/command'
-import { DialogDescription, DialogTitle } from '../ui/dialog'
-import { ShimmerImage } from '../ui/shimmer-image'
-
-const toggleGlobalSearchAtom = atom(false)
-
-export const useToggleGlobalSearch = () => {
-  const [isOpen, setIsOpen] = useAtom(toggleGlobalSearchAtom)
-
-  const handleToggle = React.useCallback(() => {
-    setIsOpen(!isOpen)
-  }, [isOpen, setIsOpen])
-
-  return [isOpen, handleToggle] as const
-}
+} from '@/components/ui/command'
+import { DialogDescription, DialogTitle } from '@/components/ui/dialog'
+import { GlobalSearchImage } from './global-search.image'
+import { useToggleGlobalSearch } from './use-global-search'
 
 const GlobalSearchDialog = () => {
   const searchParams = useSearchParams()
+  const router = useRouter()
+  const search = searchParams.get('search') || ''
 
   const [isOpen, toggle] = useToggleGlobalSearch()
 
-  const router = useRouter()
-
-  const search = searchParams.get('search') || ''
+  const { theme } = useTheme()
 
   const { data } = useQuery({
     queryKey: ['food', search],
@@ -59,6 +49,10 @@ const GlobalSearchDialog = () => {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  const handleSearch = debounce((value: string) => {
+    router.push(`?search=${value}`)
+  }, 200)
+
   return (
     <CommandDialog open={isOpen} onOpenChange={toggle}>
       <DialogTitle className="sr-only">Search</DialogTitle>
@@ -68,9 +62,7 @@ const GlobalSearchDialog = () => {
 
       <CommandInput
         placeholder="Type a command or search..."
-        onValueChange={(value) => {
-          router.push(`?search=${value}`)
-        }}
+        onValueChange={(value) => handleSearch(value)}
       />
 
       <CommandList>
@@ -89,14 +81,7 @@ const GlobalSearchDialog = () => {
             >
               <div className="flex justify-between gap-1">
                 <div className="flex gap-3">
-                  <div className="relative aspect-[16/9] h-6 w-auto overflow-hidden rounded-md">
-                    <ShimmerImage
-                      src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=800&q=80"
-                      alt={item.description}
-                      className="size-full object-cover"
-                      fill
-                    />
-                  </div>
+                  <GlobalSearchImage data={{ title: item.description }} />
 
                   <span>{item.description}</span>
                 </div>
@@ -124,14 +109,7 @@ const GlobalSearchDialog = () => {
             >
               <div className="flex justify-between gap-1">
                 <div className="flex gap-3">
-                  <div className="relative aspect-[16/9] h-6 w-auto overflow-hidden rounded-md">
-                    <ShimmerImage
-                      src={item.image}
-                      alt={item.title}
-                      className="size-full object-cover"
-                      fill
-                    />
-                  </div>
+                  <GlobalSearchImage data={{ title: item.title }} />
 
                   <span>{item.title}</span>
                 </div>

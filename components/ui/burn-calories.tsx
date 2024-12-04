@@ -21,7 +21,7 @@ export const BurnCalories = (props: BurnCaloriesProps) => {
   return (
     <div
       className={cn(
-        'rounded-lg bg-background/50 px-4 py-5 backdrop-blur',
+        'sm:rounded-lg sm:bg-background/50 sm:px-4 sm:py-5 sm:backdrop-blur',
         className,
       )}
       {...rest}
@@ -45,23 +45,23 @@ export const BurnCalories = (props: BurnCaloriesProps) => {
         </Tooltip>
       </div>
 
-      <div className="mt-2 grid grid-cols-4 gap-2">
-        <Card className="flex flex-col px-2 py-1">
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <Card className="flex flex-col px-3 py-2">
           <span className="text-sm text-muted-foreground">Steps</span>
           <span className="font-bold">9071</span>
         </Card>
 
-        <Card className="flex flex-col px-2 py-1">
+        <Card className="flex flex-col px-3 py-2">
           <span className="text-sm text-muted-foreground">Walking</span>
           <span className="font-bold">1h 30min</span>
         </Card>
 
-        <Card className="flex flex-col px-2 py-1">
+        <Card className="flex flex-col px-3 py-2">
           <span className="text-sm text-muted-foreground">Cycling</span>
           <span className="font-bold">30 min</span>
         </Card>
 
-        <Card className="flex flex-col px-2 py-1">
+        <Card className="flex flex-col px-3 py-2">
           <span className="text-sm text-muted-foreground">Swimming</span>
           <span className="font-bold">20 min</span>
         </Card>
