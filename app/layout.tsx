@@ -63,7 +63,9 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
 
           <MediaQueryDebug />
 
-          <GlobalSearchDialog />
+          <React.Suspense>
+            <GlobalSearchDialog />
+          </React.Suspense>
         </Providers>
       </body>
     </html>

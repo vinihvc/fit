@@ -38,7 +38,7 @@ const RecipePage = async (props: RecipePageProps) => {
   return (
     <div className="container max-w-screen-lg pb-5 pt-24 sm:pt-32">
       <div className="rounded-lg bg-background/50 px-2 py-3.5 backdrop-blur sm:px-4 sm:py-5">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <h1 className="text-xl font-extrabold">{data.title}</h1>
 

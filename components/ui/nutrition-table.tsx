@@ -18,13 +18,7 @@ export const NutritionTable = (props: NutritionTableProps) => {
   const facts = factsMapper(data)
 
   return (
-    <div
-      className={cn(
-        'sm:rounded-lg sm:bg-background/50 sm:px-4 sm:py-5 sm:backdrop-blur',
-        className,
-      )}
-      {...rest}
-    >
+    <div className={cn(className)} {...rest}>
       <div className="text-lg font-bold">Nutrition Facts</div>
 
       <div className="text-sm text-muted-foreground">Portion of 100g</div>

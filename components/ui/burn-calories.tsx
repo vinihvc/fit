@@ -19,13 +19,7 @@ export const BurnCalories = (props: BurnCaloriesProps) => {
   const formattedCalories = formatValue(calories)
 
   return (
-    <div
-      className={cn(
-        'sm:rounded-lg sm:bg-background/50 sm:px-4 sm:py-5 sm:backdrop-blur',
-        className,
-      )}
-      {...rest}
-    >
+    <div className={cn(className)} {...rest}>
       <div className="flex gap-2">
         <div className="text-lg font-bold">{`How to burn ${formattedCalories} calories`}</div>
 

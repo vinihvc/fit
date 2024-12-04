@@ -7,7 +7,6 @@ import { getItems } from '@/services/requests'
 import { debounce } from '@/utils/debounce'
 import { useQuery } from '@tanstack/react-query'
 import { Clock } from 'lucide-react'
-import { useTheme } from 'next-themes'
 
 import { Badge } from '@/components/ui/badge'
 import {
@@ -29,8 +28,6 @@ const GlobalSearchDialog = () => {
 
   const [isOpen, toggle] = useToggleGlobalSearch()
 
-  const { theme } = useTheme()
-
   const { data } = useQuery({
     queryKey: ['food', search],
     queryFn: () => getItems({ search }),
@@ -47,7 +44,7 @@ const GlobalSearchDialog = () => {
     document.addEventListener('keydown', handleKeyDown)
 
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [toggle])
 
   const handleSearch = debounce((value: string) => {
     router.push(`?search=${value}`)
